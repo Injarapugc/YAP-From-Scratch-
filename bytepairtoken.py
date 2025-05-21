@@ -78,7 +78,7 @@ class BPETokenizerSimple:
             loaded_vocab = json.load(file)
             self.vocab={int(v):k for k,v in loaded_vocab.items()}
             self.inverse_vocab={k:int(v) for k,v in loaded_vocab.items()}
-            with open(bpe_merges_path,'w',encoding="utf-8") as file:
+            with open(bpe_merges_path,'r',encoding="utf-8") as file:
                 lines=file.readlines()
                 if lines and lines[0].startswith("#"):
                     lines=lines[1:]
